@@ -13,7 +13,9 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    flatfigure.h \
+    mainwindow.h \
+    volumfigure.h
 
 FORMS += \
     mainwindow.ui
