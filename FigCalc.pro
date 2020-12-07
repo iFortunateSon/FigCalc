@@ -13,8 +13,10 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     oval.cpp \
+    parellelogram.cpp \
     rectangle.cpp \
-    tmp.cpp
+    tmp.cpp \
+    triangle.cpp
 
 HEADERS += \
     flatfigure.h \

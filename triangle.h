@@ -10,7 +10,7 @@ class triangle : FlatFigure
 
 */
 public:
-    triangle(const float a, const float b);
+    triangle(const float a, const float b,const float c);
     triangle(const triangle &triangle);
     virtual ~triangle();
 
@@ -23,6 +23,12 @@ public:
     float getB() const;
     float getC() const;
 
+    float getPerimeter() const;
+    float getSquare() const;
+
+    float getOuterRadius() const;
+    float getInnerRadius() const;
+    float getHeight() const;
 
 private:
     float c;

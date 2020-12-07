@@ -10,18 +10,21 @@ class parallelogram : FlatFigure
      * с - угол между a и b
     */
 public:
-    parallelogram(const float a, const float b);
+    parallelogram(const float a, const float b,float const c);
     parallelogram(const parallelogram &parallelogram);
     virtual ~parallelogram();
 
-    void setLarge(const float size);
-    void setSmall(const float size);
+    void setWidth(const float size);
+    void setThicknness(const float size);
     void setAngle(const float angle);
 
-    float getLarge() const;
-    float getSmall() const;
+    float getWidth() const;
+    float getThicknness() const;
     float getAngle() const;
 
+    float getSquare() const;
+    float getPerimetr() const;
+    float getDiagonale() const;
 
 protected:
     void setC(const float c);
