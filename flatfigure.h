@@ -4,22 +4,23 @@
 class FlatFigure
 {
 public:
-
     FlatFigure(const float a, const float b);
     FlatFigure(const FlatFigure &figure);
-    ~FlatFigure();
+    virtual ~FlatFigure();
 
-    void setA(const float a);
-    void setB(const float b);
+
+    virtual float getPerimeter() const = 0;
+    virtual float getSquare() const = 0;
+
+protected:
+
+    void setA(const float size);
+    void setB(const float size);
 
     float getA() const;
     float getB() const;
 
-    float getPerimeter() const;
-    float getSquare() const;
-
 private:
-
     float a, b;
 
 };

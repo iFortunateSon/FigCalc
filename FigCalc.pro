@@ -15,6 +15,12 @@ SOURCES += \
 HEADERS += \
     flatfigure.h \
     mainwindow.h \
+    nsquare.h \
+    oval.h \
+    parallelogram.h \
+    rectangle.h \
+    trapezoid.h \
+    triangle.h \
     volumfigure.h
 
 FORMS += \

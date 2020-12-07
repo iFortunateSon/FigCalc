@@ -7,7 +7,7 @@ public:
 
     VolumeFigure(const float a, const float b);
     VolumeFigure(const VolumeFigure &figure);
-    ~VolumeFigure();
+    virtual ~VolumeFigure();
 
     void setA(const float a);
     void setB(const float b);
@@ -17,8 +17,8 @@ public:
     float getB() const;
     float getC() const;
 
-    float getPerimeter() const;
-    float getSquare() const;
+    virtual float getPerimeter() const = 0;
+    virtual float getSquare() const = 0;
 
 private:
 
