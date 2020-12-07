@@ -14,11 +14,11 @@ public:
     rectangle(const rectangle &copy);
     virtual ~rectangle();
 
-    void setFirstSide(const float size);
-    void setSecondSide(const float size);
+    void setHeight(const float size);
+    void setWidth(const float size);
 
-    float getFirstSide() const;
-    float getSecondSide() const;
+    float getHeight() const;
+    float getWidth() const;
 
     float getPerimeter() const;
     float getSquare() const;
