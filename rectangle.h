@@ -3,25 +3,30 @@
 #include "flatfigure.h"
 
 
-class rectangle : FlatFigure
+class rectangle : public FlatFigure
 {
     /*
-     * a, b - стороны
+     * a - first side
+     * b - second size
     */
 public:
     rectangle(const float a, const float b);
-    rectangle(const rectangle &rectangle);
+    rectangle(const rectangle &copy);
     virtual ~rectangle();
 
-    void setLarge(const float size);
-    void setSmall(const float size);
+    void setFirstSide(const float size);
+    void setSecondSide(const float size);
 
-    float getLarge() const;
-    float getSmall() const;
+    float getFirstSide() const;
+    float getSecondSide() const;
+
+    float getPerimeter() const;
+    float getSquare() const;
+    float getDiagonal() const;
 
 
 private:
-
+    void sortSide();
 
 
 };

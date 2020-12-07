@@ -14,11 +14,18 @@ public:
     oval(const oval &oval);
     virtual ~oval();
 
-    void setLarge(const float size);
-    void setSmall(const float size);
+    void setFirstR(const float size);
+    void setSecondR(const float size);
+
+    float getFirstR() const;
+    float getSecondR() const;
+
 
     float getLarge() const;
     float getSmall() const;
+
+    float getPerimeter() const;
+    float getSquare() const;
 
 private:
 

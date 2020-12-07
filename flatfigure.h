@@ -1,11 +1,12 @@
 #ifndef FLATFIGURE_H
 #define FLATFIGURE_H
+#include "math.h"
 
 class FlatFigure
 {
 public:
     FlatFigure(const float a, const float b);
-    FlatFigure(const FlatFigure &figure);
+    FlatFigure(const FlatFigure &copy);
     virtual ~FlatFigure();
 
 
@@ -13,6 +14,7 @@ public:
     virtual float getSquare() const = 0;
 
 protected:
+    const float accuracy = 0.001;
 
     void setA(const float size);
     void setB(const float size);
