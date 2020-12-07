@@ -2,8 +2,12 @@
 
 FlatFigure::FlatFigure(const float a, const float b)
 {
-    setA(a);
-    setB(b);
+    if(a > 0 && b > 0){
+        setA(a);
+        setB(b);
+    }else{
+        //err
+    }
 };
 
 

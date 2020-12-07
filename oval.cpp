@@ -4,6 +4,9 @@ oval::oval(const float a, const float b):
     FlatFigure(a, b){
 };
 
+oval::oval(const oval &copy):
+    FlatFigure(copy){};
+
 void oval::setFirstR(const float size){
     if(size > 0)
     {
@@ -50,4 +53,10 @@ float oval::getPerimeter() const{
 
 float oval::getSquare() const{
 
+    auto a = getA();
+    auto b = getB();
+    auto pi = 3.14;
+    auto S = pi*a*b;
+
+    return S;
 }

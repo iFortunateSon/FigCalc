@@ -12,6 +12,7 @@ SOURCES += \
     flatfigure.cpp \
     main.cpp \
     mainwindow.cpp \
+    nsquare.cpp \
     oval.cpp \
     rectangle.cpp \
     tmp.cpp
