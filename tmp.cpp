@@ -56,18 +56,19 @@ double InnerRadiusRectangle(double w,double h){
     return IR;
 }
 
-double SquareTriangle(double a,double b, double ab){
-
-    double S = (a*b*sin(ab))/2;
-
-    return S;
-}
-
 double PerimetrTriangle(double a,double b, double c){
 
     double P = a+b+c;
 
     return P;
+}
+
+double SquareTriangle(double a,double b, double c){
+
+    auto p = PerimetrTriangle(a,b,c)/2;
+    double S = sqrt(p*(p-a)*(p-b)*(p-c));
+
+    return S;
 }
 
 double OuterRadiusTriangle(double a,double b, double c,
@@ -161,8 +162,9 @@ double InnerRadiusTriangle(double a,double b, double c,
 }
 
 
-double HeightTriangle(double a,double b, double c){
-    auto S = SquareTriangle(a,b,c);
+double HeightTriangle(double a,double b, double ab){
+
+    auto S = SquareTriangle(a,b,ab);
     auto h = 2*S/a;
 
     return h;
@@ -171,8 +173,8 @@ double HeightTriangle(double a,double b, double c){
 
 
 double SquareParallelogram(double a,double b, double ab){
-
-    double S = a*b*sin(ab);
+    auto pi = 3.14;
+    double S = a*b*sin(ab*pi/180);
 
     return S;
 }
@@ -184,12 +186,24 @@ double PerimetrParallelogram(double a,double b){
     return P;
 }
 
+double DiagonalParallelogram(double a,double b, double ab){
+    auto pi = 3.14;
+    auto D = sqrt(a*a+b*b-2*b*a*cos(ab*pi/180));
 
+    return D;
+}
 
+double OuterRadiusNangle(double a,double n){
+    auto pi = 3.14;
+    auto OR = a/(2*sin(360/(2*n)*pi/180));
+
+    return OR;
+}
 
 double SquareNangle(double a,double n){
 
-    double S = 1;
+    auto r = OuterRadiusNangle(a,n);
+    double S = a*r*n/2;
 
     return S;
 }
@@ -201,16 +215,69 @@ double PerimetrNangle(double a,double n){
     return P;
 }
 
-double OuterRadiusNangle(double a,double n){
+double InnerRadiusNangle(double a,double n){
+
     auto pi = 3.14;
-    auto OR = a/(2*sin(360/(2*n)));
+    auto IR = a/(2*tan(360/(2*n)*pi/180));
+
+    return IR;
+}
+
+double SquareTrapezoid(double a,double b, double c, double d){
+
+    auto S = (a+b)*(sqrt(c*c-((b-a)*(b-a)+ c*c - d*d)/(2*(b-a))*
+                         ((b-a)*(b-a)+ c*c - d*d)/(2*(b-a))))/2;
+
+    return S;
+}
+
+double PerimetrTrapezoid(double a,double b, double c, double d){
+
+    auto P = a+b+c+d;
+
+    return P;
+}
+
+double HeightTrapezoid(double a,double b,double c,double d){
+
+    auto h = sqrt(c*c-(((b-a)*(d-b)+c*c-d*d)/(2*(b-a)))*
+                  (((b-a)*(d-b)+c*c-d*d)/(2*(b-a))));
+
+    return h;
+
+}
+
+double OuterRadiusTrapezoid(double a,double b,double c,double d){
+    double OR;
+    if (c == d){
+        OR = (c*sqrt(a*b+c*c))/(sqrt((2*c-a+b)*(2*c+a-b)));
+    }
+    else OR =0;
 
     return OR;
 }
 
-double InnerRadiusNangle(double a,double n){
+double InnerRadiusTrapezoid(double a,double b,double c,double d){
 
-    auto IR = a/(2*tan(360/(2*n)));
+    double IR;
+    if( (a+b) == (c+d)){
+        IR = HeightTrapezoid(a,b,c,d)/2;
+    }
+    else IR = 0;
 
     return IR;
+}
+
+double DiagonalTrapezoid1(double a,double b,double c,double d){
+
+    auto D1 = sqrt((a*a*b-a*b*b-b*c*c+a*d*d)/(a-b));
+
+    return D1;
+}
+
+double DiagonalTrapezoid2(double a,double b,double c,double d){
+
+    auto D2 = sqrt((a*a*b-a*b*b-b*d*d+a*c*c)/(a-b));
+
+    return D2;
 }
