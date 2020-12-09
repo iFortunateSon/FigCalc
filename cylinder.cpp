@@ -4,7 +4,7 @@ cylinder::cylinder(const float a, const float b):
     FatFigure(a, b){
 };
 
-void cylinder::setA(const float size){
+void cylinder::setRadius(const float size){
     if(size > 0)
     {
         setA(size);
@@ -13,7 +13,7 @@ void cylinder::setA(const float size){
     }
 }
 
-void cylinder::setB(const float size){
+void cylinder::setHeight(const float size){
     if(size > 0)
     {
         setB(size);
@@ -22,11 +22,11 @@ void cylinder::setB(const float size){
     }
 }
 
-float cylinder::getA() const{
+float cylinder::getRadius() const{
     return getA();
 }
 
-float cylinder::getB() const{
+float cylinder::getHeight() const{
     return getB();
 }
 

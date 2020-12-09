@@ -2,7 +2,7 @@
 #define PYRAMID_H
 
 
-#include "fatfigure.h"
+#include "--.h"
 
 class pyramid : FatFigure
 {
@@ -16,20 +16,26 @@ class pyramid : FatFigure
         pyramid(const pyramid &oval);
         virtual ~pyramid();
 
-        void setA(const float size);
-        void setB(const float size);
-        void setC(const float size);
+        void setSide(const float size);
+        void setHeight(const float size);
+        void setCount(const float size);
 
-        float getA() const;
-        float getB() const;
-        float getC() const;
+        float getSide() const;
+        float getHeight() const;
+        float getCount() const;
 
         float getVolume() const;
         float getSquare() const;
 
         float getAngle() const;
 
+    protected:
+        void setC(const float c);
+        float getC() const;
+
+
     private:
+        float c;
 
     };
 #endif // PYRAMID_H

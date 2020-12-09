@@ -4,7 +4,7 @@ prism::prism(const float a, const float b,const float c):FatFigure(a,b){
     setC(c);
 }
 
-void prism::setA(const float size){
+void prism::setSide(const float size){
     if(size > 0)
     {
         setA(size);
@@ -13,7 +13,7 @@ void prism::setA(const float size){
     }
 }
 
-void prism::setB(const float size){
+void prism::setHeight(const float size){
     if(size > 0)
     {
         setB(size);
@@ -22,7 +22,7 @@ void prism::setB(const float size){
     }
 }
 
-void prism::setC(const float size){
+void prism::setCount(const float size){
     if(size > 0)
     {
         setC(size);
@@ -31,15 +31,15 @@ void prism::setC(const float size){
     }
 }
 
-float prism::getA() const{
+float prism::getSide() const{
     return getA();
 }
 
-float prism::getB() const{
+float prism::getHeight() const{
     return getB();
 }
 
-float prism::getC() const{
+float prism::getCount() const{
     return getC();
 }
 

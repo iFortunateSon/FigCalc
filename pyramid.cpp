@@ -4,7 +4,7 @@ pyramid::pyramid(const float a, const float b,const float c):FatFigure(a,b){
     setC(c);
 }
 
-void pyramid::setA(const float size){
+void pyramid::setSide(const float size){
     if(size > 0)
     {
         setA(size);
@@ -13,7 +13,7 @@ void pyramid::setA(const float size){
     }
 }
 
-void pyramid::setB(const float size){
+void pyramid::setHeight(const float size){
     if(size > 0)
     {
         setB(size);
@@ -22,7 +22,7 @@ void pyramid::setB(const float size){
     }
 }
 
-void pyramid::setC(const float size){
+void pyramid::setCount(const float size){
     if(size > 0)
     {
         setC(size);
@@ -31,15 +31,15 @@ void pyramid::setC(const float size){
     }
 }
 
-float pyramid::getA() const{
+float pyramid::getSide() const{
     return getA();
 }
 
-float pyramid::getB() const{
+float pyramid::getHeight() const{
     return getB();
 }
 
-float pyramid::getC() const{
+float pyramid::getCount() const{
     return getC();
 }
 

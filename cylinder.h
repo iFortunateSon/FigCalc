@@ -1,6 +1,6 @@
 #ifndef CYLINDER_H
 #define CYLINDER_H
-#include "fatfigure.h"
+#include "--.h"
 
 class cylinder:FatFigure
 {
@@ -13,11 +13,11 @@ class cylinder:FatFigure
         cylinder(const cylinder &oval);
         virtual ~cylinder();
 
-        void setA(const float size);
-        void setB(const float size);
+        void setRadius(const float size);
+        void setHeight(const float size);
 
-        float getA() const;
-        float getB() const;
+        float getRadius() const;
+        float getHeight() const;
 
         float getVolume() const;
         float getSquare() const;

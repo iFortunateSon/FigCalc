@@ -2,7 +2,7 @@
 #define CONE_H
 
 
-#include "fatfigure.h"
+#include "--.h"
 
 class cone:FatFigure
 {
@@ -15,11 +15,11 @@ class cone:FatFigure
         cone(const cone &oval);
         virtual ~cone();
 
-        void setA(const float size);
-        void setB(const float size);
+        void setRadius(const float size);
+        void setHeight(const float size);
 
-        float getA() const;
-        float getB() const;
+        float getRadius() const;
+        float getHeight() const;
 
         float getVolume() const;
         float getSquare() const;

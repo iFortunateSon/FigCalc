@@ -6,7 +6,7 @@ rectangle::rectangle(const float a, const float b):
 rectangle::rectangle(const rectangle &copy):
     FlatFigure(copy){};
 
-void rectangle::setFirstSide(const float size){
+void rectangle::setHeight(const float size){
     if(size > 0)
     {
         setA(size);
@@ -15,7 +15,7 @@ void rectangle::setFirstSide(const float size){
     }
 }
 
-void rectangle::setSecondSide(const float size){
+void rectangle::setWidth(const float size){
     if(size > 0)
     {
         setB(size);
@@ -24,11 +24,11 @@ void rectangle::setSecondSide(const float size){
     }
 }
 
-float rectangle::getFirstSide() const{
+float rectangle::getHeight() const{
     return getA();
 }
 
-float rectangle::getSecondSide() const{
+float rectangle::getWidth() const{
     return getB();
 }
 

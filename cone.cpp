@@ -1,10 +1,10 @@
 #include "cone.h"
 
-cone::cylinder(const float a, const float b):
+cone::cone(const float a, const float b):
     FatFigure(a, b){
 };
 
-void cone::setA(const float size){
+void cone::setRadius(const float size){
     if(size > 0)
     {
         setA(size);
@@ -13,7 +13,7 @@ void cone::setA(const float size){
     }
 }
 
-void cone::setB(const float size){
+void cone::setHeight(const float size){
     if(size > 0)
     {
         setB(size);
@@ -22,11 +22,11 @@ void cone::setB(const float size){
     }
 }
 
-float cone::getA() const{
+float cone::getRadius() const{
     return getA();
 }
 
-float cone::getB() const{
+float cone::getHeight() const{
     return getB();
 }
 

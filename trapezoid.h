@@ -10,7 +10,7 @@ class trapezoid : FlatFigure
      * b, c - боковые стороны
     */
 public:
-    trapezoid(const float a, const float b);
+    trapezoid(const float a, const float b, const float c, const float d);
     trapezoid(const trapezoid &trapezoid);
     virtual ~trapezoid();
 
