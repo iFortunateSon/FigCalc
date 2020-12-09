@@ -36,7 +36,7 @@ float Nsquare::getSquare() const
 {
     float size = getA();
     int n = getB();
-    auto r = getOuterR();
+    auto r = getInnerR();
     double S = size * r * n/2;
 
     return S;
