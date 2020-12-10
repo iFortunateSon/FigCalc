@@ -1,8 +1,8 @@
 #ifndef PRISM_H
 #define PRISM_H
-#include "--.h"
+#include "volumfigure.h"
 
-class prism : FatFigure
+class prism : VolumeFigure
 {
     /*
      * a - сторона
@@ -12,7 +12,7 @@ class prism : FatFigure
     public:
         prism(const float a, const float b,const float c);
         prism(const prism &oval);
-        virtual ~prism();
+
 
         void setSide(const float size);
         void setHeight(const float size);

@@ -1,10 +1,8 @@
 #ifndef CONE_H
 #define CONE_H
+#include "volumfigure.h"
 
-
-#include "--.h"
-
-class cone:FatFigure
+class cone:VolumeFigure
 {
     /*
      * a - радиус
@@ -12,8 +10,7 @@ class cone:FatFigure
     */
     public:
         cone(const float a, const float b);
-        cone(const cone &oval);
-        virtual ~cone();
+        cone(const cone &copy);
 
         void setRadius(const float size);
         void setHeight(const float size);

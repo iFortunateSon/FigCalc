@@ -46,7 +46,8 @@ float oval::getPerimeter() const{
     auto a = getA();
     auto b = getB();
     auto pi = 3.14;
-    auto P = 2*pi*sqrt((a*a+b*b)/2);
+    //auto P = 2*pi*sqrt((a*a+b*b)/2);
+    auto P = 0;
 
     return P;
 }

@@ -1,8 +1,8 @@
 #ifndef PARALLELEPIPED_H
 #define PARALLELEPIPED_H
-#include "--.h"
+#include "volumfigure.h"
 
-class parallelepiped : FatFigure
+class parallelepiped : public VolumeFigure
 {
     /*
      * a, b, c - стороны
@@ -10,15 +10,15 @@ class parallelepiped : FatFigure
     public:
         parallelepiped(const float a, const float b,const float c);
         parallelepiped(const parallelepiped &oval);
-        virtual ~parallelepiped();
 
-        void setA(const float size);
-        void setB(const float size);
-        void setC(const float size);
 
-        float getA() const;
-        float getB() const;
-        float getC() const;
+        void setSideA(const float size);
+        void setSideB(const float size);
+        void setSideC(const float size);
+
+        float getSideA() const;
+        float getSideB() const;
+        float getSideC() const;
 
         float getVolume() const;
         float getSquare() const;

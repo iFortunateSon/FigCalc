@@ -12,7 +12,7 @@ class parallelogram : FlatFigure
 public:
     parallelogram(const float a, const float b,float const c);
     parallelogram(const parallelogram &parallelogram);
-    virtual ~parallelogram();
+
 
     void setWidth(const float size);
     void setThicknness(const float size);

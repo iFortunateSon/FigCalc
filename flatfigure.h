@@ -1,6 +1,6 @@
 #ifndef FLATFIGURE_H
 #define FLATFIGURE_H
-#include "math.h"
+#include <cmath>
 
 class FlatFigure
 {
@@ -9,8 +9,6 @@ public:
     static const int def_b = 0;
     FlatFigure(const float a = def_a, const float b = def_b);
     FlatFigure(const FlatFigure &copy);
-    virtual ~FlatFigure();
-
 
     virtual float getPerimeter() const = 0;
     virtual float getSquare() const = 0;

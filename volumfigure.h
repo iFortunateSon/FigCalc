@@ -1,5 +1,6 @@
 #ifndef VOLUMFIGURE_H
 #define VOLUMFIGURE_H
+#include <cmath>
 
 class VolumeFigure
 {
@@ -9,7 +10,7 @@ public:
     static const int def_c = 0;
     VolumeFigure(const float a = def_a, const float b = def_b, const float c = def_c);
     VolumeFigure(const VolumeFigure &figure);
-    virtual ~VolumeFigure();
+
 
 
     virtual float getVolume() const = 0;

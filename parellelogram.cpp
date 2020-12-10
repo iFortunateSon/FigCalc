@@ -1,10 +1,22 @@
 #include "parallelogram.h"
-#include "math.h"
 
 parallelogram::parallelogram(const float a, const float b,const float c):FlatFigure(a,b){
     setC(c);
 }
 
+void parallelogram::setC(const float size)
+{
+    if(size > 0){
+        c = size;
+    }else{
+        //err
+    }
+};
+
+float parallelogram::getC() const
+{
+    return c;
+};
 
 void parallelogram::setWidth(const float size){
     if(size > 0)

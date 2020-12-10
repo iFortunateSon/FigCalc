@@ -1,10 +1,28 @@
 #include "parallelepiped.h"
 
-parallelepiped::parallelepiped(const float a, const float b,const float c):FatFigure(a,b){
+parallelepiped::parallelepiped(const float a, const float b,const float c):VolumeFigure(a,b){
     setC(c);
 }
 
-void parallelepiped::setA(const float size){
+void parallelepiped::setSideA(const float size){
+    if(size > 0)
+    {
+        setSideA(size);
+    }else{
+        //err
+    }
+}
+
+void parallelepiped::setSideB(const float size){
+    if(size > 0)
+    {
+        setSideB(size);
+    }else{
+        //err
+    }
+}
+
+void parallelepiped::setSideC(const float size){
     if(size > 0)
     {
         setA(size);
@@ -13,33 +31,15 @@ void parallelepiped::setA(const float size){
     }
 }
 
-void parallelepiped::setB(const float size){
-    if(size > 0)
-    {
-        setB(size);
-    }else{
-        //err
-    }
-}
-
-void parallelepiped::setC(const float size){
-    if(size > 0)
-    {
-        setC(size);
-    }else{
-        //err
-    }
-}
-
-float parallelepiped::getA() const{
+float parallelepiped::getSideA() const{
     return getA();
 }
 
-float parallelepiped::getB() const{
+float parallelepiped::getSideB() const{
     return getB();
 }
 
-float parallelepiped::getC() const{
+float parallelepiped::getSideC() const{
     return getC();
 }
 

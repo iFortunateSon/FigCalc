@@ -1,8 +1,8 @@
 #ifndef CYLINDER_H
 #define CYLINDER_H
-#include "--.h"
+#include "volumfigure.h"
 
-class cylinder:FatFigure
+class cylinder:VolumeFigure
 {
     /*
      * a - радиус
@@ -11,7 +11,7 @@ class cylinder:FatFigure
     public:
         cylinder(const float a, const float b);
         cylinder(const cylinder &oval);
-        virtual ~cylinder();
+
 
         void setRadius(const float size);
         void setHeight(const float size);

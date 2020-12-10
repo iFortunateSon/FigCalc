@@ -1,10 +1,24 @@
 #include "triangle.h"
-#include "math.h"
+
 triangle::triangle(const float a, const float b,const float c):FlatFigure(a,b){
     setC(c);
 }
 
-void triangle::setA(const float size){
+void triangle::setC(const float size)
+{
+    if(size > 0){
+        c = size;
+    }else{
+        //err
+    }
+};
+
+float triangle::getC() const
+{
+    return c;
+};
+
+void triangle::setSideA(const float size){
     if(size > 0)
     {
         setA(size);
@@ -13,7 +27,7 @@ void triangle::setA(const float size){
     }
 }
 
-void triangle::setB(const float size){
+void triangle::setSideB(const float size){
     if(size > 0)
     {
         setB(size);
@@ -22,7 +36,7 @@ void triangle::setB(const float size){
     }
 }
 
-void triangle::setC(const float size){
+void triangle::setSideC(const float size){
     if(size > 0)
     {
         setC(size);
@@ -31,15 +45,15 @@ void triangle::setC(const float size){
     }
 }
 
-float triangle::getA() const{
+float triangle::getSideA() const{
     return getA();
 }
 
-float triangle::getB() const{
+float triangle::getSideB() const{
     return getB();
 }
 
-float triangle::getC() const{
+float triangle::getSideC() const{
     return getC();
 }
 

@@ -12,7 +12,7 @@ class rectangle : public FlatFigure
 public:
     rectangle(const float a, const float b);
     rectangle(const rectangle &copy);
-    virtual ~rectangle();
+
 
     void setHeight(const float size);
     void setWidth(const float size);

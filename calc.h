@@ -4,7 +4,6 @@
 #include <list>
 #include <iterator>
 
-
 template <class T>
 class Calc
 {

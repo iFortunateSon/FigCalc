@@ -1,8 +1,13 @@
 #include "cone.h"
 
 cone::cone(const float a, const float b):
-    FatFigure(a, b){
+    VolumeFigure(a, b){
 };
+
+cone::cone(const cone& copy):
+VolumeFigure(copy)
+{};
+
 
 void cone::setRadius(const float size){
     if(size > 0)
@@ -43,12 +48,13 @@ float cone::getSquare() const{
     auto r = getA();
     auto h = getB();
     auto pi = 3.14;
-    auto l = sqrt(r*r+h*h);
+    auto l = std::sqrt(r*r+h*h);
     auto S = pi*r*(l+r);
 
     return S;
 }
 
 float cone::getAngle() const{
-    //?
+    return 0.0;
+    //todo
 }

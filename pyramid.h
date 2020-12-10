@@ -1,10 +1,8 @@
 #ifndef PYRAMID_H
 #define PYRAMID_H
+#include "volumfigure.h"
 
-
-#include "--.h"
-
-class pyramid : FatFigure
+class pyramid : VolumeFigure
 {
     /*
      * a - сторона
@@ -14,7 +12,7 @@ class pyramid : FatFigure
     public:
         pyramid(const float a, const float b,const float c);
         pyramid(const pyramid &oval);
-        virtual ~pyramid();
+
 
         void setSide(const float size);
         void setHeight(const float size);

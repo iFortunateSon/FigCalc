@@ -1,8 +1,15 @@
 #include "cylinder.h"
 
 cylinder::cylinder(const float a, const float b):
-    FatFigure(a, b){
+    VolumeFigure(a, b){
 };
+
+cylinder::cylinder(const cylinder& copy):
+VolumeFigure(copy)
+{};
+
+
+
 
 void cylinder::setRadius(const float size){
     if(size > 0)

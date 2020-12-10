@@ -22,8 +22,6 @@ SOURCES += \
     prism.cpp \
     pyramid.cpp \
     rectangle.cpp \
-    tmp.cpp \
-    tmp3.cpp \
     triangle.cpp \
     volumfigure.cpp
 

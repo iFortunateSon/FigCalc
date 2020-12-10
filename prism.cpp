@@ -1,8 +1,22 @@
 #include "prism.h"
 
-prism::prism(const float a, const float b,const float c):FatFigure(a,b){
+prism::prism(const float a, const float b,const float c):VolumeFigure(a,b){
     setC(c);
 }
+
+void prism::setC(const float size)
+{
+    if(size > 0){
+        c = size;
+    }else{
+        //err
+    }
+};
+
+float prism::getC() const
+{
+    return c;
+};
 
 void prism::setSide(const float size){
     if(size > 0)

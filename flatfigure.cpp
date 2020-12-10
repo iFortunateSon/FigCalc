@@ -18,6 +18,9 @@ FlatFigure::FlatFigure(const FlatFigure &copy)
     setB(copy.getB());
 };
 
+
+
+
 int FlatFigure::getMode() const
 {
     return mode;

@@ -12,7 +12,7 @@ class oval : FlatFigure
 public:
     oval(const float big, const float small);
     oval(const oval &oval);
-    virtual ~oval();
+
 
     void setFirstR(const float size);
     void setSecondR(const float size);

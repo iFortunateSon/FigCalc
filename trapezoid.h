@@ -12,7 +12,7 @@ class trapezoid : FlatFigure
 public:
     trapezoid(const float a, const float b, const float c, const float d);
     trapezoid(const trapezoid &trapezoid);
-    virtual ~trapezoid();
+
 
     void setDown(const float size);
     void setUp(const float size);

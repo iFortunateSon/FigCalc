@@ -21,6 +21,8 @@ VolumeFigure::VolumeFigure(const VolumeFigure &figure)
 
 }
 
+
+
 void VolumeFigure::setA(const float size){
     if(size > 0){
         a = size;
