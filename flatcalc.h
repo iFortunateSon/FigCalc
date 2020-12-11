@@ -1,23 +1,21 @@
-#ifndef CALC_H
-#define CALC_H
-#include <iostream>
+#ifndef FLATCALC_H
+#define FLATCALC_H
 #include <list>
 #include <iterator>
+#include "flatfigure.h"
 
-template <class T>
-class Calc
+class FlatCalc
 {
 /*
  * resultOne - операции периметра/площади поверхности
  * resultTwo - операции площади/объема
 */
 public:
-    Calc();
-    Calc(const Calc &copy);
-    ~Calc();
+    FlatCalc();
+    FlatCalc(const FlatCalc &copy);
 
-    void addFigure(T& figure);
-    T getFigure(void);
+    void addFigure(FlatFigure* figure);
+    FlatFigure* getFigure(void);
     void calculate(const char sign);
 
 
@@ -32,8 +30,8 @@ private:
     void division();
     float resultOne, resultTwo;
     int count, mode;
-    std::list<T*> list;
+    std::list<FlatFigure*> list;
 
 };
 
-#endif // CALC_H
+#endif // FLATCALC_H

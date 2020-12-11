@@ -9,9 +9,9 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    calc.cpp \
     cone.cpp \
     cylinder.cpp \
+    flatcalc.cpp \
     flatfigure.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,12 +23,13 @@ SOURCES += \
     pyramid.cpp \
     rectangle.cpp \
     triangle.cpp \
+    volumecalc.cpp \
     volumfigure.cpp
 
 HEADERS += \
-    calc.h \
     cone.h \
     cylinder.h \
+    flatcalc.h \
     flatfigure.h \
     mainwindow.h \
     nsquare.h \
@@ -40,6 +41,7 @@ HEADERS += \
     rectangle.h \
     trapezoid.h \
     triangle.h \
+    volumecalc.h \
     volumfigure.h
 
 FORMS += \
