@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     cone.cpp \
     cylinder.cpp \
+    dialog.cpp \
     flatcalc.cpp \
     flatfigure.cpp \
     main.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 HEADERS += \
     cone.h \
     cylinder.h \
+    dialog.h \
     flatcalc.h \
     flatfigure.h \
     mainwindow.h \
@@ -45,6 +47,7 @@ HEADERS += \
     volumfigure.h
 
 FORMS += \
+    dialog.ui \
     mainwindow.ui
 
 TRANSLATIONS += \
