@@ -23,6 +23,7 @@ SOURCES += \
     prism.cpp \
     pyramid.cpp \
     rectangle.cpp \
+    trapezoid.cpp \
     triangle.cpp \
     volumecalc.cpp \
     volumfigure.cpp

@@ -26,6 +26,12 @@ public:
 
     float getPerimeter() const override; // !!!!
     float getSquare() const override; // !!!!
+
+    float getInnerR() const;
+    float getOuterR() const;
+    float getHeight() const;
+    float getDiagonale1() const;
+    float getDiagonale2() const;
 protected:
     void setC(const float c);
     float getC() const;

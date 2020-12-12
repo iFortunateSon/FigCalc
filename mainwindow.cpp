@@ -15,6 +15,8 @@
 #include "trapezoid.h"
 #include "triangle.h"
 #include "volumfigure.h"
+#include <iostream>
+#include <string>
 
 
 
@@ -51,6 +53,8 @@ void MainWindow::on_switch_2_clicked()
         ui ->statusbar->showMessage("3D mode enable");
 
         ui->comboBox->addItems({"cone", "cylinder", "parallelepiped", "prism", "pyramid"});
+
+        ui->textEdit->clear();
     }
     else {
         //2D mode
@@ -67,6 +71,8 @@ void MainWindow::on_switch_2_clicked()
         ui ->statusbar->showMessage("2D mode enable");
 
         ui->comboBox->addItems({"nsquare", "oval", "parallelogram", "rectangle", "trapezoid", "triangle"});
+
+        ui->textEdit->clear();
     }
 }
 
@@ -88,6 +94,7 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (FlatFigure*)new Nsquare(tmp[0], tmp[1]);
+            log(QString("Nsquare:  Side count= %1, Side size= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
         case 1:
             //oval
@@ -95,6 +102,7 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (FlatFigure*)new oval(tmp[0], tmp[1]);
+            log(QString("Oval:  First radius= %1, Second radius= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
 
         break;
         case 2:
@@ -103,6 +111,7 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (FlatFigure*)new parallelogram(tmp[0], tmp[1],tmp[2]);
+            log(QString("Parallelogram:  First side= %1, Second side= %2, Angle= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
 
         break;
         case 3:
@@ -111,13 +120,16 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (FlatFigure*)new rectangle(tmp[0], tmp[1]);
+            log(QString("Rectangle:  First side= %1, Second side= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
         case 4:
             //trapezoid
             window.setLabels(4, {"First side", "Second side", "Third side", "Fourth side"});
             window.exec();
             tmp = window.getDataArray();
-//            figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1]);
+            figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1],tmp[2],tmp[3]);
+            log(QString("Trapezoid:  First side= %1, Second side= %2, Third side= %2, Fourth side= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])
+                                                                                                        ,QString::number(tmp[2]),QString::number(tmp[3])));
         break;
         case 5:
             //triangle
@@ -126,6 +138,7 @@ void MainWindow::on_add_clicked()
             tmp = window.getDataArray();
             //triangle
             figure = (FlatFigure*)new triangle(tmp[0], tmp[1], tmp[2]);
+            log(QString("Triangle:  First side= %1, Second side= %2, Third side= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
         break;
         }
 
@@ -141,6 +154,7 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (VolumeFigure*)new cone(tmp[0], tmp[1]);
+            log(QString("Cone:  Height= %1, Side radius= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
         case 1:
             //cylinder
@@ -148,6 +162,7 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (VolumeFigure*)new cylinder(tmp[0], tmp[1]);
+            log(QString("Cylinder:  Height= %1, Side radius= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
         case 2:
             //parallelepiped
@@ -155,6 +170,7 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (VolumeFigure*)new parallelepiped(tmp[0], tmp[1], tmp[2]);
+            log(QString("Parallelepiped:  First side= %1, Second side= %2, Third side= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
 
         break;
         case 3:
@@ -163,6 +179,8 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (VolumeFigure*)new prism(tmp[0], tmp[1], tmp[2]);
+            log(QString("Prism:  Side count= %1, Side size= %2, Height= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
+
         break;
         case 4:
             //pyramid
@@ -170,12 +188,122 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             figure = (VolumeFigure*)new pyramid(tmp[0], tmp[1], tmp[2]);
+            log(QString("Pyramid:  Side count= %1, Side size= %2, Height= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
+
         break;
         }
     }
 }
 
+
+void MainWindow::on_plus_clicked(){
+
+    if (mode == 0) {
+        //2D mode
+
+        flatCalc.calculate('+');
+        auto ans1 = flatCalc.getResultOne();
+        auto ans2 = flatCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+
+    }
+    else {
+        //3D mode
+        volumeCalc.calculate('+');
+        auto ans1 = volumeCalc.getResultOne();
+        auto ans2 = volumeCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+    }
+
+}
+
+void MainWindow::on_minus_clicked(){
+
+    if (mode == 0) {
+        //2D mode
+
+        flatCalc.calculate('-');
+        auto ans1 = flatCalc.getResultOne();
+        auto ans2 = flatCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+
+    }
+    else {
+        //3D mode
+        volumeCalc.calculate('-');
+        auto ans1 = volumeCalc.getResultOne();
+        auto ans2 = volumeCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+    }
+
+}
+
+void MainWindow::on_multiply_clicked(){
+
+    if (mode == 0) {
+        //2D mode
+
+        flatCalc.calculate('*');
+        auto ans1 = flatCalc.getResultOne();
+        auto ans2 = flatCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+
+    }
+    else {
+        //3D mode
+        volumeCalc.calculate('*');
+        auto ans1 = volumeCalc.getResultOne();
+        auto ans2 = volumeCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+    }
+
+}
+
+void MainWindow::on_division_clicked(){
+
+    if (mode == 0) {
+        //2D mode
+
+        flatCalc.calculate('/');
+        auto ans1 = flatCalc.getResultOne();
+        auto ans2 = flatCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+
+    }
+    else {
+        //3D mode
+        volumeCalc.calculate('/');
+        auto ans1 = volumeCalc.getResultOne();
+        auto ans2 = volumeCalc.getResultTwo();
+
+        ui->lineEdit->setText(QString::number(ans1));
+        ui->lineEdit_2->setText(QString::number(ans2));
+    }
+
+}
+
+
+
+
+
+
+
 void MainWindow::log(const QString &text_) {
     ui->textEdit->setText(ui->textEdit->toPlainText() + text_ + "\n");
 
 }
+

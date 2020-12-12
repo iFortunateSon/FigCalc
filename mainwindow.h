@@ -23,6 +23,11 @@ private slots:
 
     void on_add_clicked();
 
+    void on_plus_clicked();
+    void on_minus_clicked();
+    void on_multiply_clicked();
+    void on_division_clicked();
+
 private:
     void log(const QString& text_);
     Ui::MainWindow *ui;
