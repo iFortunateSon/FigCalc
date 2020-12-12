@@ -24,7 +24,7 @@ private slots:
     void on_add_clicked();
 
 private:
-//    void log(const QString& text_);
+    void log(const QString& text_);
     Ui::MainWindow *ui;
     int mode;
     FlatCalc flatCalc;

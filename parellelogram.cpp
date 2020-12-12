@@ -67,7 +67,7 @@ float parallelogram::getSquare() const{
     return S;
 }
 
-float parallelogram::getPerimetr() const{
+float parallelogram::getPerimeter() const{
     auto a = getA();
     auto b = getB();
     double P = (a+b)*2;

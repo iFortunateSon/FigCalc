@@ -175,6 +175,7 @@ void MainWindow::on_add_clicked()
     }
 }
 
-//void MainWindow::log(const QString &text_) {
-//    ui->textEdit->setText(ui->textEdit->toPlainText() + text_ + "\n");
-//}
+void MainWindow::log(const QString &text_) {
+    ui->textEdit->setText(ui->textEdit->toPlainText() + text_ + "\n");
+
+}
