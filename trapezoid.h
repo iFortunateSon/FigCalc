@@ -24,7 +24,8 @@ public:
     float getLeft() const;
     float getRight() const;
 
-
+    float getPerimeter() const override; // !!!!
+    float getSquare() const override; // !!!!
 protected:
     void setC(const float c);
     float getC() const;

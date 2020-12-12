@@ -22,8 +22,8 @@ public:
     float getThicknness() const;
     float getAngle() const;
 
-    float getSquare() const;
-    float getPerimetr() const;
+    float getSquare() const override;
+    float getPerimeter() const override;
     float getDiagonale() const;
 
 protected:

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>358</width>
-    <height>411</height>
+    <width>425</width>
+    <height>464</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,16 +25,6 @@
     </property>
     <property name="text">
      <string>Switch to 3D</string>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>40</y>
-      <width>201</width>
-      <height>321</height>
-     </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="plus">
@@ -125,14 +115,24 @@
      <string>Operations</string>
     </property>
    </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>140</y>
+      <width>104</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>358</width>
-     <height>22</height>
+     <width>425</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "dialog.h"
 #include <iostream>
-
 #include "cone.h"
 #include "cylinder.h"
 #include "flatfigure.h"
@@ -103,6 +102,8 @@ void MainWindow::on_add_clicked()
             window.setLabels(3, {"First side", "Second side", "Angle"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (FlatFigure*)new parallelogram(tmp[0], tmp[1],tmp[2]);
+
         break;
         case 3:
             //rectangle
@@ -116,6 +117,7 @@ void MainWindow::on_add_clicked()
             window.setLabels(4, {"First side", "Second side", "Third side", "Fourth side"});
             window.exec();
             tmp = window.getDataArray();
+//            figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1]);
         break;
         case 5:
             //triangle
@@ -123,12 +125,14 @@ void MainWindow::on_add_clicked()
             window.exec();
             tmp = window.getDataArray();
             //triangle
+            figure = (FlatFigure*)new triangle(tmp[0], tmp[1], tmp[2]);
         break;
         }
 
         flatCalc.addFigure(figure);
     }else{
         //3D mode
+        VolumeFigure* figure;
         switch (i)
         {
         case 0:
@@ -136,31 +140,41 @@ void MainWindow::on_add_clicked()
             window.setLabels(2, {"Height", "Side radius"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (VolumeFigure*)new cone(tmp[0], tmp[1]);
         break;
         case 1:
             //cylinder
             window.setLabels(2, {"Height", "Side radius"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (VolumeFigure*)new cylinder(tmp[0], tmp[1]);
         break;
         case 2:
             //parallelepiped
             window.setLabels(3, {"First side", "Second side", "Third side"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (VolumeFigure*)new parallelepiped(tmp[0], tmp[1], tmp[2]);
+
         break;
         case 3:
             //prism
             window.setLabels(3, {"Side count", "Side size", "Height"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (VolumeFigure*)new prism(tmp[0], tmp[1], tmp[2]);
         break;
         case 4:
             //pyramid
             window.setLabels(3, {"Side count", "Side size", "Height"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (VolumeFigure*)new pyramid(tmp[0], tmp[1], tmp[2]);
         break;
         }
     }
 }
+
+//void MainWindow::log(const QString &text_) {
+//    ui->textEdit->setText(ui->textEdit->toPlainText() + text_ + "\n");
+//}

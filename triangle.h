@@ -23,8 +23,8 @@ public:
     float getSideB() const;
     float getSideC() const;
 
-    float getPerimeter() const;
-    float getSquare() const;
+    float getPerimeter() const override;
+    float getSquare() const override;
 
     float getOuterRadius() const;
     float getInnerRadius() const;
