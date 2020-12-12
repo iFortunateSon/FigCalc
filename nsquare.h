@@ -9,7 +9,7 @@ class Nsquare : FlatFigure
  * b - размер стороны
 */
 public:
-    Nsquare(const float a,const float b);
+    Nsquare(const float a = def_a,const float b = def_b);
     Nsquare(const Nsquare& copy);
 
 

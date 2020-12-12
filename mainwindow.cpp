@@ -3,6 +3,22 @@
 #include "dialog.h"
 #include <iostream>
 
+#include "cone.h"
+#include "cylinder.h"
+#include "flatfigure.h"
+#include "nsquare.h"
+#include "oval.h"
+#include "parallelepiped.h"
+#include "parallelogram.h"
+#include "prism.h"
+#include "pyramid.h"
+#include "rectangle.h"
+#include "trapezoid.h"
+#include "triangle.h"
+#include "volumfigure.h"
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -64,6 +80,7 @@ void MainWindow::on_add_clicked()
 
     if(mode == 0){
         //2D mode
+        FlatFigure* figure;
         switch (i)
         {
         case 0:
@@ -71,13 +88,15 @@ void MainWindow::on_add_clicked()
             window.setLabels(2, {"Side count", "Side size"});
             window.exec();
             tmp = window.getDataArray();
-
+            figure = (FlatFigure*)new Nsquare(tmp[0], tmp[1]);
         break;
         case 1:
             //oval
             window.setLabels(2, {"First radius", "Second radius"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (FlatFigure*)new oval(tmp[0], tmp[1]);
+
         break;
         case 2:
             //parallelogram
@@ -90,6 +109,7 @@ void MainWindow::on_add_clicked()
             window.setLabels(2, {"First side", "Second side"});
             window.exec();
             tmp = window.getDataArray();
+            figure = (FlatFigure*)new rectangle(tmp[0], tmp[1]);
         break;
         case 4:
             //trapezoid
@@ -105,6 +125,8 @@ void MainWindow::on_add_clicked()
             //triangle
         break;
         }
+
+        flatCalc.addFigure(figure);
     }else{
         //3D mode
         switch (i)

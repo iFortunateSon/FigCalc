@@ -3,7 +3,7 @@
 #include "flatfigure.h"
 
 
-class parallelogram : FlatFigure
+class parallelogram : public FlatFigure
 {
     /*
      * a, b - стороны
