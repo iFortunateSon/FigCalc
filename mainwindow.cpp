@@ -223,6 +223,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(3, {"First side", "Second side", "Third side"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (VolumeFigure*)new parallelepiped(tmp[0], tmp[1], tmp[2]);
             log(QString("Parallelepiped:\n  First side= %1, Second side= %2\n Third side= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
 
@@ -261,6 +264,7 @@ void MainWindow::on_add_clicked()
             window.switchValidator();
         break;
         }
+        volumeCalc.addFigure(figure);
     }
 }
 
@@ -423,13 +427,16 @@ void MainWindow::deleteElement(){
 void MainWindow::getInfo(){
     int cnt = ui->listWidget->currentRow();
     Info window;
+    QString info;
     if(mode == 0)
     {
-        window.setTexte(flatCalc.getInfo(cnt));
+        info = flatCalc.getInfo(cnt);
+        window.setTexte(info);
         window.exec();
     }else{
         //что-то не работает
-        //window.setTexte(volumeCalc.getInfo(cnt));
+        info = volumeCalc.getInfo(cnt);
+        window.setTexte(volumeCalc.getInfo(cnt));
         window.exec();
     }
 }

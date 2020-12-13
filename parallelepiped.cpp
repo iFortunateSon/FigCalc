@@ -1,8 +1,7 @@
 #include "parallelepiped.h"
 
-parallelepiped::parallelepiped(const float a, const float b,const float c):VolumeFigure(a,b){
-    setC(c);
-}
+parallelepiped::parallelepiped(const float a, const float b,const float c):VolumeFigure(a, b, c)
+{}
 
 void parallelepiped::setSideA(const float size){
     if(size > 0)

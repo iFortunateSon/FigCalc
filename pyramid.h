@@ -27,13 +27,6 @@ class pyramid : VolumeFigure
         QString getInfoAsStr() const override;
         float getAngle() const;
 
-    protected:
-        void setC(const float c);
-        float getC() const;
-
-
-    private:
-        float c;
 
     };
 #endif // PYRAMID_H

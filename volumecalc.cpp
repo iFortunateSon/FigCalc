@@ -71,6 +71,15 @@ int VolumeCalc::getCount() const{
 }
 
 
+QString VolumeCalc::getInfo(const int index) const{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    (*it)->getInfoAsStr();
+    return (*it)->getInfoAsStr();
+};
+
 void VolumeCalc::calculate(const char sign)
 {
     switch (sign) {

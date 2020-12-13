@@ -3,13 +3,9 @@
 VolumeFigure::VolumeFigure(const float a, const float b, const float c)
 {
     mode = 1;
-    if(a > 0 && b > 0 && c > 0){
-        setA(a);
-        setB(b);
-        setC(c);
-    }else{
-        //err
-    }
+    setA(a);
+    setB(b);
+    setC(c);
 }
 
 VolumeFigure::VolumeFigure(const VolumeFigure &figure)

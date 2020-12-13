@@ -1,8 +1,7 @@
 #include "prism.h"
 
-prism::prism(const float a, const float b,const float c):VolumeFigure(a,b){
-    setC(c);
-}
+prism::prism(const float a, const float b,const float c):VolumeFigure(a, b, c)
+{}
 
 void prism::setC(const float size)
 {
@@ -58,30 +57,30 @@ float prism::getCount() const{
 }
 
 float prism::getVolume() const{
-    auto a = getA();
-    auto h = getB();
-    auto n = getC();
-    auto pi = 3.14;
-    auto r = a/(2*tan(360/(2*n)*pi/180));
-    auto Socn = a*r*n/2;
+    float a = getA();
+    float h = getB();
+    int n = getC();
+    float pi = 3.14;
+    float r = a/(2*tan(360/(2*n)*pi/180));
+    float Socn = a*r*n/2;
 
-    auto S = Socn*h/3;
+    float S = Socn*h/3;
 
     return S;
 }
 
 float prism::getSquare() const{
-    auto a = getA();
-    auto h = getB();
-    auto n = getC();
-    auto pi = 3.14;
-    auto r = a/(2*tan(360/(2*n)*pi/180));
-    auto Socn = a*r*n/2;
+    float a = getA();
+    float h = getB();
+    int n = getC();
+    float pi = 3.14;
+    float r = a/(2*tan(360/(2*n)*pi/180));
+    float Socn = a*r*n/2;
 
-    auto l = sqrt(a*a+h*h);
-    auto Sbok = l*a/2;
+    float l = sqrt(a*a+h*h);
+    float Sbok = l*a/2;
 
-    auto S = n*Sbok + Socn;
+    float S = n*Sbok + Socn;
 
     return S;
 }
