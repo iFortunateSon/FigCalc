@@ -45,7 +45,7 @@ float Nsquare::getSquare() const
 
 QString Nsquare::getInfoAsStr() const{
     // Сделать так для каждой фигуры
-    return QString("Perimeter: %1\nSquare: %2\nInner radius: %3\nOuter radius: %4").arg(QString::number(getPerimeter()), QString::number(getInnerR()), QString::number(getSquare()),QString::number(getOuterR()));
+    return QString("Square: %1\nPerimeter: %2\nInner radius: %3\nOuter radius: %4").arg(QString::number(getSquare()), QString::number(getPerimeter()), QString::number(getInnerR()),QString::number(getOuterR()));
 }
 
 float Nsquare::getInnerR() const

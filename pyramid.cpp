@@ -35,6 +35,13 @@ void pyramid::setHeight(const float size){
     }
 }
 
+QString pyramid::getInfoAsStr() const{
+
+    return QString("Square: %1\nVolume: %2").arg(QString::number(getSquare()),QString::number(getVolume()));
+
+}
+
+
 void pyramid::setCount(const float size){
     if(size > 0)
     {

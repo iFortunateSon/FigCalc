@@ -51,7 +51,7 @@ void MainWindow::showContextMenu(const QPoint &pos)
 
     QMenu myMenu;
     myMenu.addAction("Delete",  this, SLOT(deleteElement()));
-//    myMenu.addAction("Get Info",  this, SLOT(getInfo()));
+    myMenu.addAction("Get Info",  this, SLOT(getInfo()));
 
     myMenu.exec(globalPos);
 }

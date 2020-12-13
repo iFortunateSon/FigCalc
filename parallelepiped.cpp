@@ -22,6 +22,11 @@ void parallelepiped::setSideB(const float size){
     }
 }
 
+QString parallelepiped::getInfoAsStr() const{
+
+    return QString("Square: %1\nVolume: %2\nDiagonale: %3\n").arg(QString::number(getSquare()), QString::number(getVolume()), QString::number(getDiagonal()));
+}
+
 void parallelepiped::setSideC(const float size){
     if(size > 0)
     {

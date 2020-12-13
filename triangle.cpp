@@ -67,6 +67,12 @@ float triangle::getPerimeter() const{
     return P;
 }
 
+QString triangle::getInfoAsStr() const{
+
+    return QString("Square: %1\nPerimeter: %2\nInner radius: %3\nOuter radius: %4").arg(QString::number(getSquare()), QString::number(getPerimeter()),
+                                                                                        QString::number(getInnerRadius()),QString::number(getOuterRadius()));
+}
+
 float triangle::getSquare() const{
     auto a = getA();
     auto b = getB();

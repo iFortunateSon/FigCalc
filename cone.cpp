@@ -18,6 +18,11 @@ void cone::setRadius(const float size){
     }
 }
 
+QString cone::getInfoAsStr() const{
+
+    return QString("Square: %1\nVolume: %2\n").arg(QString::number(getSquare()), QString::number(getVolume()));
+}
+
 void cone::setHeight(const float size){
     if(size > 0)
     {

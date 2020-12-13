@@ -23,9 +23,9 @@ public:
 
     float getLarge() const;
     float getSmall() const;
-
-    float getPerimeter() const;
-    float getSquare() const;
+    QString getInfoAsStr() const override;
+    float getPerimeter() const override;
+    float getSquare() const override;
 
 private:
 
