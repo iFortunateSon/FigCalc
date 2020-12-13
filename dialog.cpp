@@ -7,6 +7,7 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    data = NULL;
 
 }
 
@@ -47,11 +48,18 @@ float* Dialog::getDataArray() const{
     return data;
 }
 
+
 void Dialog::on_buttonBox_accepted()
 {
+    result = true;
     data = new float[4];
     data[0] = ui->lOne->text().toDouble();
     data[1] = ui->lTwo->text().toDouble();
     data[2] = ui->lThree->text().toDouble();
     data[3] = ui->lFour->text().toDouble();
+}
+
+void Dialog::on_buttonBox_rejected()
+{
+    result = false;
 }

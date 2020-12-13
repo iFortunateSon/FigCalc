@@ -32,6 +32,10 @@ private slots:
 
     void on_deleteAll_clicked();
 
+    void showContextMenu(const QPoint&);
+    void deleteElement();
+    void getInfo();
+
 private:
     void log(const QString& text_);
     Ui::MainWindow *ui;

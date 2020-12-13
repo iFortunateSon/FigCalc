@@ -39,8 +39,10 @@ FlatFigure* FlatCalc::getFigure()
 
 void FlatCalc::removeTop()
 {
-    list.pop_front();
-    count--;
+    if(count > 0){
+        list.pop_front();
+        count--;
+    }
 }
 
 

@@ -37,8 +37,10 @@ VolumeFigure* VolumeCalc::getFigure()
 
 void VolumeCalc::removeTop()
 {
-    list.pop_front();
-    count--;
+    if(count > 0){
+        list.pop_front();
+        count--;
+    }
 }
 
 
