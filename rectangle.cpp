@@ -49,5 +49,5 @@ float rectangle::getDiagonal() const{
     int a = getA();
     int b = getB();
 
-    return sqrt(a*a*+b*b);
+    return sqrt(a*a+b*b);
 }

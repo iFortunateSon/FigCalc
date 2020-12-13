@@ -18,7 +18,7 @@ void oval::setFirstR(const float size){
 
 QString oval::getInfoAsStr() const{
 
-    return QString("SquarePerimeter: %1\nPerimeter: %2\n").arg(QString::number(getSquare()), QString::number(getPerimeter()));
+    return QString("Square: %1\nPerimeter: %2\n").arg(QString::number(getSquare()), QString::number(getPerimeter()));
 }
 
 void oval::setSecondR(const float size){

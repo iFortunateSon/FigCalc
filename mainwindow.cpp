@@ -174,7 +174,7 @@ void MainWindow::on_add_clicked()
                 return;
             }
             figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1],tmp[2],tmp[3]);
-            log(QString("Trapezoid:\n  First side= %1, Second side= %2\n Third side= %2, Fourth side= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])
+            log(QString("Trapezoid:\n  First side= %1, Second side= %2\n Third side= %3, Fourth side= %4").arg(QString::number(tmp[0]),QString::number(tmp[1])
                                                                                                         ,QString::number(tmp[2]),QString::number(tmp[3])));
         break;
         case 5:

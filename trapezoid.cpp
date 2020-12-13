@@ -1,7 +1,7 @@
 #include "trapezoid.h"
 
 trapezoid::trapezoid(const float a, const float b,const float c,const float d):FlatFigure(a,b){
-    setRight(d);
+    set(d);
     setLeft(c);
 }
 
