@@ -1,6 +1,6 @@
 #include "trapezoid.h"
 
-trapezoid::trapezoid(const float a, const float b,const float c,const float d):FlatFigure(a,b){
+trapezoid::trapezoid(const float a, const float b,const float c,const float d):FlatFigure(a, b){
     setRight(d);
     setLeft(c);
 }
@@ -36,12 +36,12 @@ float trapezoid::getUp() const
 
 float trapezoid::getLeft() const
 {
-    return getLeft();
+    return c;
 };
 
 float trapezoid::getRight() const
 {
-    return getRight();
+    return d;
 };
 
 QString trapezoid::getInfoAsStr() const{

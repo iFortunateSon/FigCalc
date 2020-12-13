@@ -44,7 +44,7 @@ float cone::getVolume() const{
     auto r = getA();
     auto h = getB();
     auto pi = 3.14;
-    auto V = 1/3*pi*r*r*h;
+    auto V = pi*r*r*h/3;
 
     return V;
 }

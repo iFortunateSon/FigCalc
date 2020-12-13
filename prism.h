@@ -28,14 +28,6 @@ class prism : VolumeFigure
 
         float getDiagonale() const;
 
-    protected:
-        void setC(const float c);
-        float getC() const;
-
-
-    private:
-        float c;
-
     };
 
 #endif // PRISM_H
