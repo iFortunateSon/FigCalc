@@ -425,10 +425,12 @@ void MainWindow::getInfo(){
     Info window;
     if(mode == 0)
     {
-
-        flatCalc.getInfo(cnt);
+        window.setTexte(flatCalc.getInfo(cnt));
+        window.exec();
     }else{
-
+        //что-то не работает
+        //window.setTexte(volumeCalc.getInfo(cnt));
+        window.exec();
     }
 }
 
