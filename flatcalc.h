@@ -16,6 +16,7 @@ public:
 
     void addFigure(FlatFigure* figure);
     FlatFigure* getFigure(void);
+    void removeTop(void);
     void calculate(const char sign);
 
 

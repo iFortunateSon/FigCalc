@@ -200,23 +200,27 @@ void MainWindow::on_plus_clicked(){
 
     if (mode == 0) {
         //2D mode
+        if(flatCalc.getCount() >=2 ){
+            flatCalc.calculate('+');
+            auto ans1 = flatCalc.getResultOne();
+            auto ans2 = flatCalc.getResultTwo();
 
-        flatCalc.calculate('+');
-        auto ans1 = flatCalc.getResultOne();
-        auto ans2 = flatCalc.getResultTwo();
-
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
 
     }
     else {
         //3D mode
-        volumeCalc.calculate('+');
-        auto ans1 = volumeCalc.getResultOne();
-        auto ans2 = volumeCalc.getResultTwo();
+        if(volumeCalc.getCount() >= 2){
 
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            volumeCalc.calculate('+');
+            auto ans1 = volumeCalc.getResultOne();
+            auto ans2 = volumeCalc.getResultTwo();
+
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
     }
 
 }
@@ -225,23 +229,27 @@ void MainWindow::on_minus_clicked(){
 
     if (mode == 0) {
         //2D mode
+        if(flatCalc.getCount() >=2 ){
+            flatCalc.calculate('-');
+            auto ans1 = flatCalc.getResultOne();
+            auto ans2 = flatCalc.getResultTwo();
 
-        flatCalc.calculate('-');
-        auto ans1 = flatCalc.getResultOne();
-        auto ans2 = flatCalc.getResultTwo();
-
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
 
     }
     else {
         //3D mode
-        volumeCalc.calculate('-');
-        auto ans1 = volumeCalc.getResultOne();
-        auto ans2 = volumeCalc.getResultTwo();
+        if(volumeCalc.getCount() >= 2){
 
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            volumeCalc.calculate('-');
+            auto ans1 = volumeCalc.getResultOne();
+            auto ans2 = volumeCalc.getResultTwo();
+
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
     }
 
 }
@@ -250,23 +258,27 @@ void MainWindow::on_multiply_clicked(){
 
     if (mode == 0) {
         //2D mode
+        if(flatCalc.getCount() >=2 ){
+            flatCalc.calculate('*');
+            auto ans1 = flatCalc.getResultOne();
+            auto ans2 = flatCalc.getResultTwo();
 
-        flatCalc.calculate('*');
-        auto ans1 = flatCalc.getResultOne();
-        auto ans2 = flatCalc.getResultTwo();
-
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
 
     }
     else {
         //3D mode
-        volumeCalc.calculate('*');
-        auto ans1 = volumeCalc.getResultOne();
-        auto ans2 = volumeCalc.getResultTwo();
+        if(volumeCalc.getCount() >= 2){
 
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            volumeCalc.calculate('*');
+            auto ans1 = volumeCalc.getResultOne();
+            auto ans2 = volumeCalc.getResultTwo();
+
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
     }
 
 }
@@ -275,23 +287,27 @@ void MainWindow::on_division_clicked(){
 
     if (mode == 0) {
         //2D mode
+        if(flatCalc.getCount() >=2 ){
+            flatCalc.calculate('/');
+            auto ans1 = flatCalc.getResultOne();
+            auto ans2 = flatCalc.getResultTwo();
 
-        flatCalc.calculate('/');
-        auto ans1 = flatCalc.getResultOne();
-        auto ans2 = flatCalc.getResultTwo();
-
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
 
     }
     else {
         //3D mode
-        volumeCalc.calculate('/');
-        auto ans1 = volumeCalc.getResultOne();
-        auto ans2 = volumeCalc.getResultTwo();
+        if(volumeCalc.getCount() >= 2){
 
-        ui->lineEdit->setText(QString::number(ans1));
-        ui->lineEdit_2->setText(QString::number(ans2));
+            volumeCalc.calculate('/');
+            auto ans1 = volumeCalc.getResultOne();
+            auto ans2 = volumeCalc.getResultTwo();
+
+            ui->lineEdit->setText(QString::number(ans1));
+            ui->lineEdit_2->setText(QString::number(ans2));
+        }
     }
 
 }
@@ -307,3 +323,35 @@ void MainWindow::log(const QString &text_) {
 
 }
 
+
+void MainWindow::on_deleteTop_clicked()
+{
+    if (mode == 0) {
+        //2D mode
+         flatCalc.removeTop();
+    }
+    else {
+        //3D mode
+        volumeCalc.removeTop();
+    }
+}
+
+void MainWindow::on_deleteAll_clicked()
+{
+    if (mode == 0) {
+        //2D mode
+        for(int i = 0; i < flatCalc.getCount(); i++){
+            flatCalc.removeTop();
+            //todo
+        }
+
+    }
+    else {
+        //3D mode
+        for(int i = 0; i < volumeCalc.getCount(); i++){
+            volumeCalc.removeTop();
+            //todo
+        }
+
+    }
+}

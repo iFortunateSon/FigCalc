@@ -16,6 +16,8 @@ public:
 
     void addFigure(VolumeFigure* figure);
     VolumeFigure* getFigure(void);
+    void removeTop();
+
     void calculate(const char sign);
 
 

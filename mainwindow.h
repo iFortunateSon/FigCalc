@@ -28,6 +28,10 @@ private slots:
     void on_multiply_clicked();
     void on_division_clicked();
 
+    void on_deleteTop_clicked();
+
+    void on_deleteAll_clicked();
+
 private:
     void log(const QString& text_);
     Ui::MainWindow *ui;
