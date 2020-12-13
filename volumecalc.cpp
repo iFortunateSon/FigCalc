@@ -44,6 +44,17 @@ void VolumeCalc::removeTop()
 }
 
 
+void VolumeCalc::removeElementWithID(const int index)
+{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    list.erase(it);
+    count--;
+}
+
+
 float VolumeCalc::getResultOne() const
 {
     return  resultOne;

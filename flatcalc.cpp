@@ -45,6 +45,16 @@ void FlatCalc::removeTop()
     }
 }
 
+void FlatCalc::removeElementWithID(const int index)
+{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    list.erase(it);
+    count--;
+}
+
 
 float FlatCalc::getResultOne() const
 {

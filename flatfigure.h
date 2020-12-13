@@ -1,6 +1,7 @@
 #ifndef FLATFIGURE_H
 #define FLATFIGURE_H
 #include <cmath>
+#include <QString>
 
 class FlatFigure
 {

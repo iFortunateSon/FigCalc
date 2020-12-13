@@ -5,6 +5,7 @@
 #include <QStringList>
 #include "flatcalc.h"
 #include "volumecalc.h"
+#include <QDoubleValidator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

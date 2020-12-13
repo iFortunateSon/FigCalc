@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui -> listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->listWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showContextMenu(QPoint)));
+
 }
 
 MainWindow::~MainWindow()
@@ -44,15 +45,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::showContextMenu(const QPoint &pos)
 {
-    // Handle global position
     QPoint globalPos = ui->listWidget->mapToGlobal(pos);
 
-    // Create menu and insert some actions
     QMenu myMenu;
     myMenu.addAction("Delete",  this, SLOT(deleteElement()));
-    myMenu.addAction("Get Info",  this, SLOT(getInfo()));
+//    myMenu.addAction("Get Info",  this, SLOT(getInfo()));
 
-    // Show context menu at handling position
     myMenu.exec(globalPos);
 }
 
@@ -117,16 +115,27 @@ void MainWindow::on_add_clicked()
         case 0:
             //nsquare
             window.setLabels(2, {"Side count", "Side size"});
+            window.switchValidator();
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
+            if(tmp[0] <= 3){
+                tmp[0] = 3;
+            }
             figure = (FlatFigure*)new Nsquare(tmp[0], tmp[1]);
             log(QString("Nsquare:\n  Side count= %1, Side size= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
+            window.switchValidator();
         break;
         case 1:
             //oval
             window.setLabels(2, {"First radius", "Second radius"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (FlatFigure*)new oval(tmp[0], tmp[1]);
             log(QString("Oval:\n  First radius= %1, Second radius= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
 
@@ -136,6 +145,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(3, {"First side", "Second side", "Angle"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (FlatFigure*)new parallelogram(tmp[0], tmp[1],tmp[2]);
             log(QString("Parallelogram:\n  First side= %1, Second side= %2\n Angle= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
 
@@ -145,6 +157,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(2, {"First side", "Second side"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (FlatFigure*)new rectangle(tmp[0], tmp[1]);
             log(QString("Rectangle:\n  First side= %1, Second side= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
@@ -153,6 +168,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(4, {"First side", "Second side", "Third side", "Fourth side"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1],tmp[2],tmp[3]);
             log(QString("Trapezoid:\n  First side= %1, Second side= %2\n Third side= %2, Fourth side= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])
                                                                                                         ,QString::number(tmp[2]),QString::number(tmp[3])));
@@ -162,7 +180,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(3, {"First side", "Second side", "Third side"});
             window.exec();
             tmp = window.getDataArray();
-            //triangle
+            if(tmp == NULL){
+                return;
+            }
             figure = (FlatFigure*)new triangle(tmp[0], tmp[1], tmp[2]);
             log(QString("Triangle:\n  First side= %1, Second side= %2\n Third side= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
         break;
@@ -179,6 +199,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(2, {"Height", "Side radius"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (VolumeFigure*)new cone(tmp[0], tmp[1]);
             log(QString("Cone:\n  Height= %1, Side radius= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
@@ -187,6 +210,9 @@ void MainWindow::on_add_clicked()
             window.setLabels(2, {"Height", "Side radius"});
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
             figure = (VolumeFigure*)new cylinder(tmp[0], tmp[1]);
             log(QString("Cylinder:\n  Height= %1, Side radius= %2").arg(QString::number(tmp[0]),QString::number(tmp[1])));
         break;
@@ -202,20 +228,35 @@ void MainWindow::on_add_clicked()
         case 3:
             //prism
             window.setLabels(3, {"Side count", "Side size", "Height"});
+            window.switchValidator();
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
+            if(tmp[0] <= 3){
+                tmp[0] = 3;
+            }
             figure = (VolumeFigure*)new prism(tmp[0], tmp[1], tmp[2]);
             log(QString("Prism:\n  Side count= %1, Side size= %2\n Height= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
+            window.switchValidator();
 
         break;
         case 4:
             //pyramid
             window.setLabels(3, {"Side count", "Side size", "Height"});
+            window.switchValidator();
             window.exec();
             tmp = window.getDataArray();
+            if(tmp == NULL){
+                return;
+            }
+            if(tmp[0] <= 3){
+                tmp[0] = 3;
+            }
             figure = (VolumeFigure*)new pyramid(tmp[0], tmp[1], tmp[2]);
             log(QString("Pyramid:\n  Side count= %1, Side size= %2\n Height= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
-
+            window.switchValidator();
         break;
         }
     }
@@ -362,6 +403,31 @@ void MainWindow::on_deleteTop_clicked()
         delete ui->listWidget->takeItem(cnt-1);
     }
 }
+
+
+void MainWindow::deleteElement(){
+    int cnt = ui->listWidget->currentRow();
+    if(mode == 0)
+    {
+        flatCalc.removeElementWithID(cnt);
+    }else{
+        volumeCalc.removeElementWithID(cnt);
+    }
+    delete ui->listWidget->takeItem(cnt);
+
+}
+
+
+void MainWindow::getInfo(){
+    int cnt = ui->listWidget->currentRow();
+    if(mode == 0)
+    {
+
+    }else{
+
+    }
+}
+
 
 void MainWindow::on_deleteAll_clicked()
 {

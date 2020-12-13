@@ -42,6 +42,8 @@ float Nsquare::getSquare() const
     return S;
 };
 
+
+
 float Nsquare::getInnerR() const
 {
     int n = getA();

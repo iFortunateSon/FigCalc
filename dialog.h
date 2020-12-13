@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QLabel>
+#include <QDoubleValidator>
+#include <QIntValidator>
 
 namespace Ui {
 class Dialog;
@@ -16,6 +18,8 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     void setLabels(const int cnt, const QStringList &str);
     float* getDataArray() const;
+    void switchValidator();
+
     ~Dialog();
 
 private slots:
@@ -27,6 +31,9 @@ private:
     Ui::Dialog *ui;
     float* data;
     bool result;
+    QDoubleValidator floatValid;
+    QIntValidator intValid;
+    bool intValidBool;
 };
 
 #endif // DIALOG_H

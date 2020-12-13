@@ -19,8 +19,8 @@ public:
     int getCount() const;
     float getSize() const;
 
-    float getPerimeter() const;
-    float getSquare() const;
+    float getPerimeter() const override;
+    float getSquare() const override;
 
     float getInnerR() const;
     float getOuterR() const;
