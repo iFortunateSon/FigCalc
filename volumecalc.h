@@ -17,6 +17,7 @@ public:
     void addFigure(VolumeFigure* figure);
     VolumeFigure* getFigure(void);
     void removeTop();
+    void removeElementWithID(const int index);
 
     void calculate(const char sign);
 

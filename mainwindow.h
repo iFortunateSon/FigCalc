@@ -5,6 +5,7 @@
 #include <QStringList>
 #include "flatcalc.h"
 #include "volumecalc.h"
+#include <QDoubleValidator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,6 +32,10 @@ private slots:
     void on_deleteTop_clicked();
 
     void on_deleteAll_clicked();
+
+    void showContextMenu(const QPoint&);
+    void deleteElement();
+    void getInfo();
 
 private:
     void log(const QString& text_);

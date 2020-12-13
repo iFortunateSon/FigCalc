@@ -3,6 +3,7 @@
 #include <list>
 #include <iterator>
 #include "flatfigure.h"
+#include <QString>
 
 class FlatCalc
 {
@@ -17,6 +18,7 @@ public:
     void addFigure(FlatFigure* figure);
     FlatFigure* getFigure(void);
     void removeTop(void);
+    void removeElementWithID(const int index);
     void calculate(const char sign);
 
 

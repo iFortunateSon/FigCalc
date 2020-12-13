@@ -39,7 +39,19 @@ FlatFigure* FlatCalc::getFigure()
 
 void FlatCalc::removeTop()
 {
-    list.pop_front();
+    if(count > 0){
+        list.pop_front();
+        count--;
+    }
+}
+
+void FlatCalc::removeElementWithID(const int index)
+{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    list.erase(it);
     count--;
 }
 
