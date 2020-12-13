@@ -13,6 +13,7 @@ public:
 
     virtual float getPerimeter() const = 0;
     virtual float getSquare() const = 0;
+    virtual QString getInfoAsStr() const = 0;
 
 protected:
 

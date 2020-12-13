@@ -14,6 +14,7 @@ SOURCES += \
     dialog.cpp \
     flatcalc.cpp \
     flatfigure.cpp \
+    info.cpp \
     main.cpp \
     mainwindow.cpp \
     nsquare.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     dialog.h \
     flatcalc.h \
     flatfigure.h \
+    info.h \
     mainwindow.h \
     nsquare.h \
     oval.h \
@@ -49,6 +51,7 @@ HEADERS += \
 
 FORMS += \
     dialog.ui \
+    info.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

@@ -85,3 +85,7 @@ float prism::getSquare() const{
 
     return S;
 }
+
+QString prism::getInfoAsStr() const{
+    return QString("Square: %1\nVolume: %2").arg(QString::number(getSquare()),QString::number(getVolume()));
+}

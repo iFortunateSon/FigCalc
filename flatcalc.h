@@ -26,6 +26,8 @@ public:
     float getResultTwo() const;
     int getCount() const;
 
+    QString getInfo(const int index) const;
+
 private:
     void addition();
     void subtraction();

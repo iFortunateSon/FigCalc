@@ -71,6 +71,13 @@ int FlatCalc::getCount() const{
     return  count;
 }
 
+QString FlatCalc::getInfo(const int index) const{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    return (*it)->getInfoAsStr();
+};
 
 
 void FlatCalc::calculate(const char sign){

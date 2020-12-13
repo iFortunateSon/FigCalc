@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialog.h"
+#include "info.h"
+
 #include <iostream>
 #include "cone.h"
 #include "cylinder.h"
@@ -420,9 +422,11 @@ void MainWindow::deleteElement(){
 
 void MainWindow::getInfo(){
     int cnt = ui->listWidget->currentRow();
+    Info window;
     if(mode == 0)
     {
 
+        flatCalc.getInfo(cnt);
     }else{
 
     }

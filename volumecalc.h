@@ -2,6 +2,7 @@
 #define VOLUMECALC_H
 #include <list>
 #include <iterator>
+#include <QString>
 #include "volumfigure.h"
 
 class VolumeCalc
@@ -25,6 +26,8 @@ public:
     float getResultOne() const;
     float getResultTwo() const;
     int getCount() const;
+
+    QString getInfo(const int index) const;
 
 private:
     void addition();

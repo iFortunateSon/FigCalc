@@ -1,6 +1,7 @@
 #ifndef VOLUMFIGURE_H
 #define VOLUMFIGURE_H
 #include <cmath>
+#include <QString>
 
 class VolumeFigure
 {
@@ -15,6 +16,7 @@ public:
 
     virtual float getVolume() const = 0;
     virtual float getSquare() const = 0;
+    virtual QString getInfoAsStr() const = 0;
 
 protected:
 
