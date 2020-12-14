@@ -46,7 +46,7 @@ float trapezoid::getRight() const
 
 QString trapezoid::getInfoAsStr() const{
 
-    return QString("Square: %1\nPerimeter: %2\nInner radius: %3\nOuter radius: %4\nHeight: %5\nDiagonals: %6 ; %7").
+    return QString("Square: %1\nPerimeter: %2\nInner radius: %3\nOuter radius: %4\nHeight: %5\nDiagonals: %6, %7").
             arg(QString::number(getSquare()), QString::number(getPerimeter()), QString::number(getInnerR()),QString::number(getOuterR())
                 , QString::number(getHeight()), QString::number(getDiagonale1()), QString::number(getDiagonale2()));
 }
