@@ -195,6 +195,15 @@ void MainWindow::on_add_clicked()
             if(tmp == NULL){
                 return;
             }
+            if(tmp[0] > (tmp[1]+tmp[2])){
+                return;
+            }
+            if(tmp[1] > (tmp[0]+tmp[2]) ){
+                return;
+            }
+            if(tmp[2] > (tmp[1]+tmp[0]) ){
+                return;
+            }
             figure = (FlatFigure*)new triangle(tmp[0], tmp[1], tmp[2]);
             log(QString("Triangle:\n  First side= %1, Second side= %2\n Third side= %3").arg(QString::number(tmp[0]),QString::number(tmp[1]),QString::number(tmp[2])));
         break;
