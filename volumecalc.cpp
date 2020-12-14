@@ -1,5 +1,4 @@
 #include "volumecalc.h"
-#include "flatfigure.h"
 #include "volumfigure.h"
 
 
@@ -7,6 +6,7 @@ VolumeCalc::VolumeCalc(void)
 {
     resultOne = 0;
     resultTwo = 0;
+    count = 0;
 }
 
 
@@ -35,6 +35,26 @@ VolumeFigure* VolumeCalc::getFigure()
 }
 
 
+void VolumeCalc::removeTop()
+{
+    if(count > 0){
+        list.pop_front();
+        count--;
+    }
+}
+
+
+void VolumeCalc::removeElementWithID(const int index)
+{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    list.erase(it);
+    count--;
+}
+
+
 float VolumeCalc::getResultOne() const
 {
     return  resultOne;
@@ -50,6 +70,15 @@ int VolumeCalc::getCount() const{
     return  count;
 }
 
+
+QString VolumeCalc::getInfo(const int index) const{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    (*it)->getInfoAsStr();
+    return (*it)->getInfoAsStr();
+};
 
 void VolumeCalc::calculate(const char sign)
 {
@@ -72,11 +101,10 @@ void VolumeCalc::calculate(const char sign)
 
 void VolumeCalc::addition()
 {
-    VolumeFigure* tmp1 = list.back();
-    list.pop_back();
-    VolumeFigure* tmp2 = list.back();
-    list.pop_back();
-
+    auto it = list.begin();
+    VolumeFigure* tmp1 = *it;
+    it++;
+    VolumeFigure* tmp2 = *it;
 
     resultOne = tmp1->getSquare() + tmp2->getSquare();
     resultTwo = tmp1->getVolume() + tmp2->getVolume();
@@ -86,10 +114,10 @@ void VolumeCalc::addition()
 
 void VolumeCalc::subtraction()
 {
-    VolumeFigure* tmp1 = list.back();
-    list.pop_back();
-    VolumeFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    VolumeFigure* tmp1 = *it;
+    it++;
+    VolumeFigure* tmp2 = *it;
 
 
     resultOne = tmp1->getSquare() - tmp2->getSquare();
@@ -100,10 +128,10 @@ void VolumeCalc::subtraction()
 
 void VolumeCalc::multiplication()
 {
-    VolumeFigure* tmp1 = list.back();
-    list.pop_back();
-    VolumeFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    VolumeFigure* tmp1 = *it;
+    it++;
+    VolumeFigure* tmp2 = *it;
 
 
     resultOne = tmp1->getSquare() * tmp2->getSquare();
@@ -113,10 +141,10 @@ void VolumeCalc::multiplication()
 
 void VolumeCalc::division()
 {
-    VolumeFigure* tmp1 = list.back();
-    list.pop_back();
-    VolumeFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    VolumeFigure* tmp1 = *it;
+    it++;
+    VolumeFigure* tmp2 = *it;
 
 
     resultOne = tmp1->getSquare() / tmp2->getSquare();

@@ -25,7 +25,7 @@ public:
     float getSquare() const override;
     float getPerimeter() const override;
     float getDiagonale() const;
-
+    QString getInfoAsStr() const override;
 protected:
     void setC(const float c);
     float getC() const;

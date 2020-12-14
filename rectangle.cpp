@@ -24,6 +24,11 @@ void rectangle::setWidth(const float size){
     }
 }
 
+QString rectangle::getInfoAsStr() const{
+
+    return QString("Square: %1\nPerimeter: %2\nDiagonale: %3\n").arg(QString::number(getSquare()), QString::number(getPerimeter()), QString::number(getDiagonal()));
+}
+
 float rectangle::getHeight() const{
     return getA();
 }
@@ -44,5 +49,5 @@ float rectangle::getDiagonal() const{
     int a = getA();
     int b = getB();
 
-    return sqrt(a*a*+b*b);
+    return sqrt(a*a+b*b);
 }

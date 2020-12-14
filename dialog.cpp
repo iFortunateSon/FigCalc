@@ -4,9 +4,18 @@
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Dialog)
+    ui(new Ui::Dialog),
+    floatValid(0, 50, 2),
+    intValid(3, 100)
 {
     ui->setupUi(this);
+    data = NULL;
+    ui->lOne->setValidator(&floatValid);
+    ui->lTwo->setValidator(&floatValid);
+    ui->lThree->setValidator(&floatValid);
+    ui->lFour->setValidator(&floatValid);
+
+    intValidBool = false;
 
 }
 
@@ -43,15 +52,36 @@ void Dialog::setLabels(const int cnt,const QStringList &str)
     }
 }
 
+
+void Dialog::switchValidator(){
+    if(intValidBool){
+        intValidBool = false;
+        ui->lOne->setValidator(&floatValid);
+
+    }else{
+        intValidBool = true;
+        ui->lOne->setValidator(&intValid);
+
+    }
+}
+
+
 float* Dialog::getDataArray() const{
     return data;
 }
 
+
 void Dialog::on_buttonBox_accepted()
 {
+
     data = new float[4];
-    data[0] = ui->lOne->text().toDouble();
-    data[1] = ui->lTwo->text().toDouble();
-    data[2] = ui->lThree->text().toDouble();
-    data[3] = ui->lFour->text().toDouble();
+    data[0] = ui->lOne->text().toFloat();
+    data[1] = ui->lTwo->text().toFloat();
+    data[2] = ui->lThree->text().toFloat();
+    data[3] = ui->lFour->text().toFloat();
+}
+
+void Dialog::on_buttonBox_rejected()
+{
+
 }

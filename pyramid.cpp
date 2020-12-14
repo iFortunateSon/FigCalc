@@ -1,22 +1,9 @@
 #include "pyramid.h"
 
-pyramid::pyramid(const float a, const float b,const float c):VolumeFigure(a,b){
-    setC(c);
-}
+pyramid::pyramid(const float a, const float b,const float c):VolumeFigure(a, b, c)
+{}
 
-void pyramid::setC(const float size)
-{
-    if(size > 0){
-        c = size;
-    }else{
-        //err
-    }
-};
 
-float pyramid::getC() const
-{
-    return c;
-};
 void pyramid::setSide(const float size){
     if(size > 0)
     {
@@ -34,6 +21,13 @@ void pyramid::setHeight(const float size){
         //err
     }
 }
+
+QString pyramid::getInfoAsStr() const{
+
+    return QString("Square: %1\nVolume: %2").arg(QString::number(getSquare()),QString::number(getVolume()));
+
+}
+
 
 void pyramid::setCount(const float size){
     if(size > 0)

@@ -29,7 +29,7 @@ public:
     float getOuterRadius() const;
     float getInnerRadius() const;
     float getHeight() const;
-
+    QString getInfoAsStr() const override;
 protected:
     void setC(const float size);
     float getC() const;

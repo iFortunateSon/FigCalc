@@ -1,12 +1,12 @@
 #include "flatcalc.h"
 #include "flatfigure.h"
-#include "volumfigure.h"
 
 
 FlatCalc::FlatCalc(void)
 {
     resultOne = 0;
     resultTwo = 0;
+    count = 0;
 }
 
 
@@ -21,18 +21,38 @@ FlatCalc::FlatCalc(const FlatCalc &copy)
 
 
 
-void FlatCalc::addFigure(FlatFigure *figure){
+void FlatCalc::addFigure(FlatFigure *figure)
+{
     list.push_back(figure);
     count++;
 }
 
 
 
-FlatFigure* FlatCalc::getFigure(){
+FlatFigure* FlatCalc::getFigure()
+{
     FlatFigure* tmp = list.back();
     list.pop_back();
     count--;
     return tmp;
+}
+
+void FlatCalc::removeTop()
+{
+    if(count > 0){
+        list.pop_front();
+        count--;
+    }
+}
+
+void FlatCalc::removeElementWithID(const int index)
+{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    list.erase(it);
+    count--;
 }
 
 
@@ -51,6 +71,13 @@ int FlatCalc::getCount() const{
     return  count;
 }
 
+QString FlatCalc::getInfo(const int index) const{
+    auto it = list.begin();
+    for(int i = 0; i < index; i++){
+        it++;
+    }
+    return (*it)->getInfoAsStr();
+};
 
 
 void FlatCalc::calculate(const char sign){
@@ -72,10 +99,10 @@ void FlatCalc::calculate(const char sign){
 
 
 void FlatCalc::addition(){
-    FlatFigure* tmp1 = list.back();
-    list.pop_back();
-    FlatFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    FlatFigure* tmp1 = *it;
+    it++;
+    FlatFigure* tmp2 = *it;
     resultOne = tmp1->getPerimeter() + tmp2->getPerimeter();
     resultTwo = tmp1->getSquare() + tmp2->getSquare();
 
@@ -84,10 +111,10 @@ void FlatCalc::addition(){
 
 
 void FlatCalc::subtraction(){
-    FlatFigure* tmp1 = list.back();
-    list.pop_back();
-    FlatFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    FlatFigure* tmp1 = *it;
+    it++;
+    FlatFigure* tmp2 = *it;
     resultOne = tmp1->getPerimeter() - tmp2->getPerimeter();
     resultTwo = tmp1->getSquare() - tmp2->getSquare();
 
@@ -96,10 +123,10 @@ void FlatCalc::subtraction(){
 
 
 void FlatCalc::multiplication(){
-    FlatFigure* tmp1 = list.back();
-    list.pop_back();
-    FlatFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    FlatFigure* tmp1 = *it;
+    it++;
+    FlatFigure* tmp2 = *it;
     resultOne = tmp1->getPerimeter() * tmp2->getPerimeter();
     resultTwo = tmp1->getSquare() * tmp2->getSquare();
 
@@ -108,10 +135,10 @@ void FlatCalc::multiplication(){
 
 
 void FlatCalc::division(){
-    FlatFigure* tmp1 = list.back();
-    list.pop_back();
-    FlatFigure* tmp2 = list.back();
-    list.pop_back();
+    auto it = list.begin();
+    FlatFigure* tmp1 = *it;
+    it++;
+    FlatFigure* tmp2 = *it;
     resultOne = tmp1->getPerimeter() / tmp2->getPerimeter();
     resultTwo = tmp1->getSquare() / tmp2->getSquare();
 

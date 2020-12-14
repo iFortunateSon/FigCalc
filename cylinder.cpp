@@ -29,6 +29,11 @@ void cylinder::setHeight(const float size){
     }
 }
 
+QString cylinder::getInfoAsStr() const{
+
+    return QString("Square: %1\nVolume: %2\n").arg(QString::number(getSquare()), QString::number(getVolume()));
+}
+
 float cylinder::getRadius() const{
     return getA();
 }

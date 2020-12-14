@@ -18,11 +18,11 @@ class cone:VolumeFigure
         float getRadius() const;
         float getHeight() const;
 
-        float getVolume() const;
-        float getSquare() const;
+        float getVolume() const override;
+        float getSquare() const override;
 
         float getAngle() const;
-
+        QString getInfoAsStr() const override;
 
     private:
 

@@ -20,9 +20,9 @@ class parallelepiped : public VolumeFigure
         float getSideB() const;
         float getSideC() const;
 
-        float getVolume() const;
-        float getSquare() const;
-
+        float getVolume() const override;
+        float getSquare() const override;
+        QString getInfoAsStr() const override;
         float getDiagonal() const;
 
     private:

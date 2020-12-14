@@ -27,6 +27,11 @@ void parallelogram::setWidth(const float size){
     }
 }
 
+QString parallelogram::getInfoAsStr() const{
+
+    return QString("Square: %1\nPerimeter: %2\nDiagonale: %3\n").arg(QString::number(getSquare()), QString::number(getPerimeter()), QString::number(getDiagonale()));
+}
+
 void parallelogram::setThicknness(const float size){
     if(size > 0)
     {

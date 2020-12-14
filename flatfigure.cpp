@@ -19,8 +19,6 @@ FlatFigure::FlatFigure(const FlatFigure &copy)
 };
 
 
-
-
 int FlatFigure::getMode() const
 {
     return mode;

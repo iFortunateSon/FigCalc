@@ -20,11 +20,11 @@ public:
     float getHeight() const;
     float getWidth() const;
 
-    float getPerimeter() const;
-    float getSquare() const;
+    float getPerimeter() const override;
+    float getSquare() const override;
     float getDiagonal() const;
 
-
+    QString getInfoAsStr() const override;
 private:
     void sortSide();
 
