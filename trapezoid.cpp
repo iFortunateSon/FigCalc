@@ -67,8 +67,14 @@ float trapezoid::getSquare() const{
     auto b = getB();
     auto c = getLeft();
     auto d = getRight();
-    auto S = (a+b)*(sqrt(c*c-((b-a)*(b-a)+ c*c - d*d)/(2*(b-a))*
-                         ((b-a)*(b-a)+ c*c - d*d)/(2*(b-a))))/2;
+
+    auto s1 = (a+b)/2;
+    auto s2 = ((b-a)*(b-a)+ c*c - d*d);
+    auto s3 = (2*(b-a));
+
+    auto s4 = s2/s3;
+
+    auto S = s1*sqrt(c*c-s4*s4);
 
     return S;
 }

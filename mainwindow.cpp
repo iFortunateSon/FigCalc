@@ -167,28 +167,25 @@ void MainWindow::on_add_clicked()
         break;
         case 4:
             //trapezoid
-            window.setLabels(4, {"First side", "Second side", "Third side", "Fourth side"});
+            window.setLabels(3, {"Bottom base", "Top base", "Side sides"});
             window.exec();
             tmp = window.getDataArray();
             if(tmp == NULL){
                 return;
             }
-            if(tmp[0] > (tmp[1]+tmp[2] +tmp[3]) ){
+            if(tmp[0] > (tmp[1]+tmp[2] +tmp[2]) ){
                 return;
             }
-            if(tmp[1] > (tmp[0]+tmp[2] +tmp[3]) ){
+            if(tmp[1] > (tmp[0]+tmp[2] +tmp[2]) ){
                 return;
             }
-            if(tmp[2] > (tmp[1]+tmp[0] +tmp[3]) ){
-                return;
-            }
-            if(tmp[3] > (tmp[1]+tmp[2] +tmp[0]) ){
+            if(tmp[2] > (tmp[1]+tmp[0] +tmp[2]) ){
                 return;
             }
 
-            figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1],tmp[2],tmp[3]);
-            log(QString("Trapezoid:\n  First side= %1, Second side= %2\n Third side= %3, Fourth side= %4").arg(QString::number(tmp[0]),QString::number(tmp[1])
-                                                                                                        ,QString::number(tmp[2]),QString::number(tmp[3])));
+            figure = (FlatFigure*)new trapezoid(tmp[0], tmp[1],tmp[2],tmp[2]);
+            log(QString("Trapezoid:\n  Bottom base= %1, Top base= %2\n Side sides= %3").arg(QString::number(tmp[0]),QString::number(tmp[1])
+                                                                                                        ,QString::number(tmp[2])));
         break;
         case 5:
             //triangle
